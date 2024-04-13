@@ -1,0 +1,75 @@
+[
+    {
+      "id": 1,
+      "image": "https://example.com/image1.jpg",
+      "estate_title": "Luxury Villa with Ocean View",
+      "segment": "Residential",
+      "description": "This stunning villa offers breathtaking views of the ocean and luxurious amenities.",
+      "price": "$2,500,000",
+      "status": "For Sale",
+      "area": "5000 sq. ft.",
+      "location": "Malibu, California",
+      "facilities": ["Swimming Pool", "Gym", "Spa", "Garden", "Home Theater"]
+    },
+    {
+      "id": 2,
+      "image": "https://example.com/image2.jpg",
+      "estate_title": "Downtown Loft Apartment",
+      "segment": "Urban",
+      "description": "Modern loft apartment located in the heart of the city with easy access to all amenities.",
+      "price": "$600,000",
+      "status": "For Sale",
+      "area": "1500 sq. ft.",
+      "location": "New York City, New York",
+      "facilities": ["Fitness Center", "Roof Deck", "Concierge", "Parking", "Security"]
+    },
+    {
+      "id": 3,
+      "image": "https://example.com/image3.jpg",
+      "estate_title": "Family Home in Suburbs",
+      "segment": "Residential",
+      "description": "Spacious family home situated in a peaceful suburban neighborhood, perfect for raising kids.",
+      "price": "$400,000",
+      "status": "For Sale",
+      "area": "2500 sq. ft.",
+      "location": "Denver, Colorado",
+      "facilities": ["Backyard", "Playground", "Fireplace", "Walk-in Closet", "Home Office"]
+    },
+    {
+      "id": 4,
+      "image": "https://example.com/image4.jpg",
+      "estate_title": "Luxury Penthouse with City Views",
+      "segment": "Urban",
+      "description": "Exquisite penthouse offering panoramic views of the city skyline, ideal for sophisticated urban living.",
+      "price": "$3,000,000",
+      "status": "For Sale",
+      "area": "4000 sq. ft.",
+      "location": "San Francisco, California",
+      "facilities": ["Rooftop Pool", "Private Elevator", "Wine Cellar", "Smart Home System", "Concierge"]
+    },
+    {
+      "id": 5,
+      "image": "https://example.com/image5.jpg",
+      "estate_title": "Historic Mansion",
+      "segment": "Residential",
+      "description": "Magnificent historic mansion with grand architecture and rich history, a true masterpiece.",
+      "price": "$5,500,000",
+      "status": "For Sale",
+      "area": "8000 sq. ft.",
+      "location": "Charleston, South Carolina",
+      "facilities": ["Tennis Court", "Library", "Ballroom", "Guest House", "Gated Entry"]
+    },
+    {
+      "id": 6,
+      "image": "https://example.com/image6.jpg",
+      "estate_title": "Seaside Cottage Retreat",
+      "segment": "Vacation",
+      "description": "Charming seaside cottage offering tranquility and relaxation, perfect for a vacation getaway.",
+      "price": "$300,000",
+      "status": "For Sale",
+      "area": "1200 sq. ft.",
+      "location": "Cape Cod, Massachusetts",
+      "facilities": ["Beach Access", "Outdoor Patio", "Fire Pit", "Furnished", "Private Parking"]
+    }
+  ]
+  

@@ -4,14 +4,6 @@ const Footer = () => {
     return (
         <footer className="footer p-10 bg-base-200 text-base-content">
             <nav>
-                <h6 className="footer-title">Services</h6>
-                <a className="link link-hover">Property Management Services</a>
-                <a className="link link-hover">Maintenance and Repairs</a>
-                <a className="link link-hover">Social and Recreational Activities</a>
-                <a className="link link-hover">Interior Design Consultation</a>
-                <a className="link link-hover">24/7 Emergency Assistance</a>
-            </nav>
-            <nav>
                 <h6 className="footer-title">Contact Us</h6>
                 <a className="link link-hover">Address: sector:04,Road:13,House:17,Dhaka</a>
                 <a className="link link-hover">Phone: +8801705378993</a>
