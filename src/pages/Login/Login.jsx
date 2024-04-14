@@ -90,7 +90,7 @@ const Login = () => {
                                 <span className="label-text text-gray-700 text-xs">Password</span>
                             </label>
                             <input  type={ showPassword ? "text" : "password"} placeholder="Password" name="password" className="input input-bordered text-gray-700 bg-transparent border-gray-300 " required />
-                            <span className="absolute top-3 right-2 py-6 px-6 " onClick={()=> setShowPassword(!showPassword)}>
+                            <span className="absolute top-3 right-2 py-10 px-6 " onClick={()=> setShowPassword(!showPassword)}>
                                 {
                                     showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>
                                 }
