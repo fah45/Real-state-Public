@@ -2,6 +2,9 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { useContext, useState } from "react";
 import { FaFacebook, FaGithub, FaGoogle, FaTwitter } from "react-icons/fa";
+import toast, { Toaster } from 'react-hot-toast';
+
+
 
 
 
@@ -25,10 +28,13 @@ const Login = () => {
             .then(() => {
                 setSuccess("Logged In Successful")
                 // Toast
+                
+                toast.success('Successfully created!');
                 navigate(location?.state ? location.state : '/')
             })
             .catch(error => {
                 // Toast
+                toast.error('login again');
                 setErrorMessage(error.message)
             })
     }
@@ -37,12 +43,17 @@ const Login = () => {
     const handleSocialLogin = (socialProvider) => {
 
         socialProvider()
-            .then(() =>  // navigate after login
-            // Toast
+            .then(() => {
+                setSuccess("Logged In Successful")
+                toast.success("Successfully login");
                 navigate(location?.state ? location.state : '/')
+            } // navigate after login
+               // Toast
+                
             )
             .catch(error=>{
                 // toast(error.message)
+                toast.error('Wrong Password or email');
                 setErrorMessage(error.message)
             })
     }
@@ -77,6 +88,7 @@ const Login = () => {
                             }
                         </div>
                         <div className="form-control mt-4">
+                        <Toaster />
                             <button className="btn btn-primary">Login</button>
                         </div>
                         <div className="mt-4 text-center">
@@ -85,6 +97,7 @@ const Login = () => {
                     </form>
                     <div className="divider text-gray-700">Continue With</div>
                     <div className="flex justify-center gap-4 mb-6">
+                    <Toaster />
                         <button className="btn rounded-full" onClick={() => handleSocialLogin(googleSignIn)}><FaGoogle /></button>
                         <button className="btn rounded-full" onClick={() => handleSocialLogin(gitHubSignIn)}><FaGithub /></button>
                         <button className="btn rounded-full" onClick={() => handleSocialLogin(twitterSignIn)}><FaTwitter /></button>

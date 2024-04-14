@@ -17,6 +17,7 @@ const routes = createBrowserRouter([
             {
                 path: "/",
                 element: <Home></Home>,
+                loader: () => fetch('/public/example.json')
             },
             {
                 path: "/login",
