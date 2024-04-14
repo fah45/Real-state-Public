@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { FaFacebook, FaGithub, FaGoogle, FaTwitter } from "react-icons/fa";
+import toast, { Toaster } from 'react-hot-toast';
 
 
 
@@ -38,6 +39,7 @@ const Register = () => {
             })
             .catch(error => {
                 // toast
+                toast.error('Wrong Password or email');
                 setErrorMessage(error.message)
             })
     }
@@ -48,11 +50,13 @@ const Register = () => {
         socialProvider()
             .then(() => {
                 // Toast
+                toast.success("Successfully login");
                 setSuccess("Successfully Registered")
                 navigate('/login')
             })
-            .catch(error=>{
+            .catch(error => {
                 // toast(error.message)
+                toast.error('Wrong Password or email');
                 setErrorMessage(error.message)
             })
     }
@@ -79,6 +83,12 @@ const Register = () => {
                         </div>
                         <div className="form-control">
                             <label className="label">
+                                <span className="label-text text-gray-700 text-xs">PhotoURL</span>
+                            </label>
+                            <input type="text" placeholder="Photo-Url" name="Photo_Url" className="input input-bordered text-gray-700 bg-transparent border-gray-300 " required />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
                                 <span className="label-text text-gray-700 text-xs">Password</span>
                             </label>
                             <input type="password" placeholder="Password" name="password" className="input input-bordered text-gray-700 bg-transparent border-gray-300 " required />
@@ -90,6 +100,7 @@ const Register = () => {
                             }
                         </div>
                         <div className="form-control mt-4">
+                        <Toaster />
                             <button className="btn btn-primary">Register</button>
                         </div>
                         <div className="mt-4 text-center">
@@ -98,6 +109,7 @@ const Register = () => {
                     </form>
                     <div className="divider text-gray-700">Continue With</div>
                     <div className="flex justify-center gap-4 mb-6">
+                    <Toaster />
                         <button className="btn rounded-full" onClick={() => handleSocialLogin(googleSignIn)}><FaGoogle /></button>
                         <button className="btn rounded-full" onClick={() => handleSocialLogin(gitHubSignIn)}><FaGithub /></button>
                         <button className="btn rounded-full" onClick={() => handleSocialLogin(twitterSignIn)}><FaTwitter /></button>
