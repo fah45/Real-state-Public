@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { FaFacebook, FaGithub, FaGoogle, FaTwitter } from "react-icons/fa";
 import toast, { Toaster } from 'react-hot-toast';
+import { FaEye, FaEyeSlash } from "react-icons/fa6";
 
 
 
@@ -10,6 +11,7 @@ import toast, { Toaster } from 'react-hot-toast';
 const Register = () => {
     const [success, setSuccess] = useState("")
     const [errorMessage, setErrorMessage] = useState("")
+    const [showPassword, setShowPassword] = useState(false);
 
 
     const { signUp, googleSignIn, gitHubSignIn, twitterSignIn, facebookSignIn } = useContext(AuthContext)
@@ -29,6 +31,16 @@ const Register = () => {
 
         // if(password.length<6){return setError, toast}
         // if(regx logic){return setError, toast}
+        if(password.length <6){
+            setErrorMessage("Password should be at least 6 characters or longer");
+            toast.error("Password should be at least 6 characters or longer")
+            return;
+        }
+        else if(!/[A-Z]/.test(password)){
+            setErrorMessage("Your password should be at least one upper case characters");
+            toast.error("should be one upper case");
+            return;
+        }
 
         // Normal SignUp
         signUp(email, password)
@@ -88,11 +100,16 @@ const Register = () => {
                             </label>
                             <input type="text" placeholder="Photo-Url" name="Photo_Url" className="input input-bordered text-gray-700 bg-transparent border-gray-300 " required />
                         </div>
-                        <div className="form-control">
+                        <div className="form-control mb-4 relative">
                             <label className="label">
                                 <span className="label-text text-gray-700 text-xs">Password</span>
                             </label>
-                            <input type="password" placeholder="Password" name="password" className="input input-bordered text-gray-700 bg-transparent border-gray-300 " required />
+                            <input type={ showPassword ? "text" : "password"} placeholder="Password" name="password" className="input input-bordered text-gray-700 bg-transparent border-gray-300 " required />
+                            <span className="absolute top-3 right-2 py-6 px-6 " onClick={()=> setShowPassword(!showPassword)}>
+                                {
+                                    showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>
+                                }
+                            </span>
                             {
                                 errorMessage && <p className='text-red-500 text-xs mt-4'>Error :{errorMessage} </p>
                             }

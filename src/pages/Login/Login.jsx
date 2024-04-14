@@ -3,6 +3,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import { useContext, useState } from "react";
 import { FaFacebook, FaGithub, FaGoogle, FaTwitter } from "react-icons/fa";
 import toast, { Toaster } from 'react-hot-toast';
+import { FaEye, FaEyeSlash } from "react-icons/fa6";
 
 
 
@@ -12,6 +13,7 @@ const Login = () => {
     const { signIn, googleSignIn, gitHubSignIn, twitterSignIn, facebookSignIn } = useContext(AuthContext)
     const [success, setSuccess] = useState("")
     const [errorMessage, setErrorMessage] = useState("")
+    const [showPassword, setShowPassword] = useState(false);
 
     const location = useLocation()
     const navigate = useNavigate()
@@ -23,6 +25,17 @@ const Login = () => {
         const password = form.get("password")
         setSuccess("")
         setErrorMessage("")
+
+        if(password.length <6){
+            setErrorMessage("Password should be at least 6 characters or longer");
+            toast.error("Password should be at least 6 characters or longer")
+            return;
+        }
+        else if(!/[A-Z]/.test(password)){
+            setErrorMessage("Your password should be at least one upper case characters");
+            toast.error("should be one upper case");
+            return;
+        }
 
         signIn(email, password)
             .then(() => {
@@ -72,14 +85,16 @@ const Login = () => {
                             </label>
                             <input type="email" name="email" placeholder="Email" className="input input-bordered text-gray-700 bg-transparent border-gray-300 " required />
                         </div>
-                        <div className="form-control">
+                        <div className="form-control mb-4 relative">
                             <label className="label">
-                                <span className="label-text text-gray-700 text-sm">Password</span>
+                                <span className="label-text text-gray-700 text-xs">Password</span>
                             </label>
-                            <input type="password" placeholder="Password" name="password" className="input input-bordered text-gray-700 bg-transparent border-gray-300 " required />
-                            <label className="label">
-                                <a href="#" className="label-text-alt link link-hover text-gray-700 text-sm">Forgot password?</a>
-                            </label>
+                            <input  type={ showPassword ? "text" : "password"} placeholder="Password" name="password" className="input input-bordered text-gray-700 bg-transparent border-gray-300 " required />
+                            <span className="absolute top-3 right-2 py-6 px-6 " onClick={()=> setShowPassword(!showPassword)}>
+                                {
+                                    showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>
+                                }
+                            </span>
                             {
                                 errorMessage && <p className='text-red-500 text-xs mt-4'>Error :{errorMessage} </p>
                             }

@@ -7,6 +7,7 @@ import Register from "../pages/Register/Register"
 import Contact from "../pages/Contact";
 import About from "../pages/About";
 import UpdateProfile from "../pages/UpdateProfile";
+import Review from "../pages/Review";
 
 
 const routes = createBrowserRouter([
@@ -27,6 +28,10 @@ const routes = createBrowserRouter([
             {
                 path: "/update-profile",
                 element: <UpdateProfile></UpdateProfile>
+            },
+            {
+               path: "/review",
+               element: <Review></Review>
             },
             {
                 path: "/register",
