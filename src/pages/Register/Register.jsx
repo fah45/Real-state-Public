@@ -22,7 +22,8 @@ const Register = () => {
         const form = new FormData(e.currentTarget)
         const email = form.get("email")
         const password = form.get("password")
-        console.log(email, password)
+        const photo = form.get("photo")
+        console.log(email, password, photo)
         setSuccess("")
         setErrorMessage("")
 

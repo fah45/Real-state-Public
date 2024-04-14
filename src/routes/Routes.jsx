@@ -6,6 +6,7 @@ import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register"
 import Contact from "../pages/Contact";
 import About from "../pages/About";
+import UpdateProfile from "../pages/UpdateProfile";
 
 
 const routes = createBrowserRouter([
@@ -22,6 +23,10 @@ const routes = createBrowserRouter([
             {
                 path: "/login",
                 element: <Login></Login>
+            },
+            {
+                path: "/update-profile",
+                element: <UpdateProfile></UpdateProfile>
             },
             {
                 path: "/register",

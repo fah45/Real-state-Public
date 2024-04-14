@@ -13,7 +13,7 @@ const Home = () => {
             </Helmet> */}
             <Banner></Banner>
             <PropertyCard></PropertyCard>
-            <h2 className="text-3xl">This is Home</h2>
+            
         </div>
     );
 };
