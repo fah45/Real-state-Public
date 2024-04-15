@@ -10,7 +10,7 @@ const EstateCard = ({card}) => {
     return (
         <div>
             <Helmet>
-                <title>EstateCard</title>
+                <title>Harmony</title>
             </Helmet>
             <div className="card card-compact  transition border-2  hover:scale-100 md:hover:scale-105 lg:hover:scale-105 border-opacity-30 border-green-500 hover:border-green-700  group hover:no-underline focus:no-underline bg-base-100 shadow-xl">
                 <figure className=" pt-3">
