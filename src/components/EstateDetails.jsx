@@ -20,15 +20,21 @@ const EstateDetails = () => {
     },[id,cards])
 
     console.log(estateCard)
-    const { estate_title, segment_name, description, price, status, area, location, facilities, image, view_property_button } = estateCard
+    const { estate_title, segment, description, price, status, area, location, facilities, image, view_property_button } = estateCard
 
     return (
-        <div>
-            <h1>Hello Mammah! Ami Details {id}</h1>
+        <div className="card-body items-center text-center">
+            <h1 className="card-title">Hello This is Id {id}</h1>
             
             <img src={image} className="object-cover object-center rounded-3xl w-full mb-4 h-[300px]" />
-            <p>{estate_title}</p>
-            <p>{description}</p>
+            <p><span className='font-bold'>Estate_title: </span>{estate_title}</p>
+            <p><span className='font-bold'>Description: </span>{description}</p>
+            <p><span className='font-bold'>Segment: </span>{segment}</p>
+            <p><span className='font-bold'>Price: </span>{price}</p>
+            <p><span className='font-bold'>Status: </span>{status}</p>
+            <p><span className='font-bold'>Area: </span>{area}</p>
+            <p><span className='font-bold'>Location: </span>{location}</p>
+            <p><span className='font-bold'>Facilities: </span>{facilities}</p>
         </div>
     );
 };

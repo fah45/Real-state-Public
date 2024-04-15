@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const EstateCard = ({card}) => {
 
     console.log(card)
-    const { estate_title, id, segment_name, description, price, status, area, location, facilities, image, view_property_button } = card
+    const { estate_title, id, segment, description, price, status, area, location, facilities, image, view_property_button } = card
     // console.log(card)
     return (
         <div>
