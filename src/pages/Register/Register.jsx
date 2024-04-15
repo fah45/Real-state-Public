@@ -1,9 +1,10 @@
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
-import { FaGithub, FaGoogle,  } from "react-icons/fa";
+import { FaGithub, FaGoogle, } from "react-icons/fa";
 import toast, { Toaster } from 'react-hot-toast';
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
+
 
 
 
@@ -14,7 +15,8 @@ const Register = () => {
     const [showPassword, setShowPassword] = useState(false);
 
 
-    const { signUp, googleSignIn, gitHubSignIn,  } = useContext(AuthContext)
+
+    const { signUp, updateUserProfile, googleSignIn, gitHubSignIn, } = useContext(AuthContext)
 
     const navigate = useNavigate()
 
@@ -31,30 +33,35 @@ const Register = () => {
 
         // if(password.length<6){return setError, toast}
         // if(regex logic){return setError, toast}
-        if(password.length <6){
+        if (password.length < 6) {
             setErrorMessage("Password should be at least 6 characters or longer");
             toast.error("Password should be at least 6 characters or longer")
             return;
         }
-        else if(!/[A-Z]/.test(password)){
+        else if (!/[A-Z]/.test(password)) {
             setErrorMessage("Your password should be at least one upper case characters");
             toast.error("should be one upper case");
             return;
         }
-        else if(!/[a-z]/.test(password)){
+        else if (!/[a-z]/.test(password)) {
             setErrorMessage("Your password should be at least one lower case characters");
             toast.error("should be one lower case");
             return;
         }
 
         // Normal SignUp
-        signUp(email, password, photo)
+        signUp(email, password, photo,)
             .then(() => {
                 // update profile er vitore then er vitore eta
-                setSuccess("Successfully Registered")
-                // Toast
-                toast.success("Successfully Registered");
-                navigate('/login')
+                updateUserProfile(photo)
+                    .then(() => {
+                        setSuccess("Successfully Registered")
+                        // Toast
+                        toast.success("Successfully Registered");
+                        navigate('/login')
+
+                    })
+
             })
             .catch(error => {
                 // toast
@@ -62,6 +69,7 @@ const Register = () => {
                 setErrorMessage(error.message)
             })
     }
+
 
     // Social SignUp
     const handleSocialLogin = (socialProvider) => {
@@ -110,8 +118,8 @@ const Register = () => {
                             <label className="label">
                                 <span className="label-text text-gray-700 text-xs">Password</span>
                             </label>
-                            <input type={ showPassword ? "text" : "password"} placeholder="Password" name="password" className="input input-bordered text-gray-700 bg-transparent border-gray-300 " required />
-                            <span className="absolute top-3 right-2 py-10 px-6 " onClick={()=> setShowPassword(!showPassword)}>
+                            <input type={showPassword ? "text" : "password"} placeholder="Password" name="password" className="input input-bordered text-gray-700 bg-transparent border-gray-300 " required />
+                            <span className="absolute top-3 right-2 py-10 px-6 " onClick={() => setShowPassword(!showPassword)}>
                                 {
                                     showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>
                                 }
@@ -124,7 +132,7 @@ const Register = () => {
                             }
                         </div>
                         <div className="form-control mt-4">
-                        <Toaster />
+                            <Toaster />
                             <button className="btn btn-primary">Register</button>
                         </div>
                         <div className="mt-4 text-center">
@@ -133,7 +141,7 @@ const Register = () => {
                     </form>
                     <div className="divider text-gray-700">Continue With</div>
                     <div className="flex justify-center gap-4 mb-6">
-                    <Toaster />
+                        <Toaster />
                         <button className="btn rounded-full" onClick={() => handleSocialLogin(googleSignIn)}><FaGoogle /></button>
                         <button className="btn rounded-full" onClick={() => handleSocialLogin(gitHubSignIn)}><FaGithub /></button>
                     </div>

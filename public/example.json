@@ -1,7 +1,7 @@
 [
     {
       "id": 1,
-      "image": "https://example.com/image1.jpg",
+      "image": "https://i.ibb.co/4R2kss4/pexels-vecislavas-popa-1643383.jpg",
       "estate_title": "Luxury Villa with Ocean View",
       "segment": "Residential",
       "description": "This stunning villa offers breathtaking views of the ocean and luxurious amenities.",
@@ -13,7 +13,7 @@
     },
     {
       "id": 2,
-      "image": "https://example.com/image2.jpg",
+      "image": "https://i.ibb.co/C5Rm04F/3d-rendering-loft-luxury-living-room-with-bookshelf-near-bookshelf.jpg",
       "estate_title": "Downtown Loft Apartment",
       "segment": "Urban",
       "description": "Modern loft apartment located in the heart of the city with easy access to all amenities.",
@@ -25,7 +25,7 @@
     },
     {
       "id": 3,
-      "image": "https://example.com/image3.jpg",
+      "image": "https://i.ibb.co/D7Ztt2v/pexels-atbo-245208.jpg",
       "estate_title": "Family Home in Suburbs",
       "segment": "Residential",
       "description": "Spacious family home situated in a peaceful suburban neighborhood, perfect for raising kids.",
@@ -37,7 +37,7 @@
     },
     {
       "id": 4,
-      "image": "https://example.com/image4.jpg",
+      "image": "https://i.ibb.co/K2dDCPm/pexels-jean-van-der-meulen-1457842.jpg",
       "estate_title": "Luxury Penthouse with City Views",
       "segment": "Urban",
       "description": "Exquisite penthouse offering panoramic views of the city skyline, ideal for sophisticated urban living.",
@@ -49,7 +49,7 @@
     },
     {
       "id": 5,
-      "image": "https://example.com/image5.jpg",
+      "image": "https://i.ibb.co/kDcymTF/pexels-vecislavas-popa-1643383.jpg",
       "estate_title": "Historic Mansion",
       "segment": "Residential",
       "description": "Magnificent historic mansion with grand architecture and rich history, a true masterpiece.",
@@ -61,7 +61,7 @@
     },
     {
       "id": 6,
-      "image": "https://example.com/image6.jpg",
+      "image": "https://i.ibb.co/QF76405/park-lujiazui-financial-centre.jpg",
       "estate_title": "Seaside Cottage Retreat",
       "segment": "Vacation",
       "description": "Charming seaside cottage offering tranquility and relaxation, perfect for a vacation getaway.",

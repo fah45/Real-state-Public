@@ -1,4 +1,4 @@
-import { FacebookAuthProvider, GithubAuthProvider, GoogleAuthProvider, TwitterAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { FacebookAuthProvider, GithubAuthProvider, GoogleAuthProvider, TwitterAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import auth from "../firebase/firebase.config";
 
@@ -18,6 +18,15 @@ const AuthProvider = ({ children }) => {
     const signUp = (email, password) => {
         setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
+    }
+
+
+    // update profile
+    const updateUserProfile = (name, photo) => {
+        return updateProfile(auth.currentUser, {
+            displayName: name,
+            photoURL: photo
+        })
     }
 
     // Sign in User
@@ -60,9 +69,10 @@ const AuthProvider = ({ children }) => {
     // Observer
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            setLoading(false)
             console.log("Observing : ", currentUser)
             setUser(currentUser)
-            setLoading(false)
+            
         })
         return () => {
             unsubscribe();
@@ -71,7 +81,7 @@ const AuthProvider = ({ children }) => {
 
 
     const authInfo = {
-        user, setLoading, signUp, signIn, logOut, googleSignIn, gitHubSignIn, twitterSignIn, facebookSignIn, loading
+        user, setLoading, signUp, signIn, logOut, googleSignIn, gitHubSignIn, twitterSignIn, facebookSignIn, updateUserProfile, loading
     }
 
     return (
