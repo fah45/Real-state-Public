@@ -4,6 +4,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import { FaGithub, FaGoogle, } from "react-icons/fa";
 import toast, { Toaster } from 'react-hot-toast';
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -89,6 +90,9 @@ const Register = () => {
     }
     return (
         <div className="hero p-6 ">
+            <Helmet>
+                <title> Register </title>
+            </Helmet>
             <div className="hero-content flex-col w-full p-8">
 
                 <div className="text-center">

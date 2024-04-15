@@ -1,9 +1,13 @@
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 
 
 const UpdateProfile = () => {
     return (
         <div className="hero ">
+            <Helmet>
+                <title> Update-Profile </title>
+            </Helmet>
         <div className="hero-content flex-col w-full">
 
             <Link to="/update-profile" className="text-center">

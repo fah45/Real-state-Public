@@ -4,6 +4,7 @@ import { useContext, useState } from "react";
 import { FaGithub, FaGoogle, } from "react-icons/fa";
 import toast, { Toaster } from 'react-hot-toast';
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -77,6 +78,9 @@ const Login = () => {
 
     return (
         <div className="hero ">
+            <Helmet>
+                <title> Login </title>
+            </Helmet>
             <div className="hero-content flex-col w-full">
                 <div className="text-center">
                     <h1 className="text-5xl font-bold mb-4">Login now!</h1>

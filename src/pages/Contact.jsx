@@ -1,8 +1,12 @@
+import { Helmet } from "react-helmet-async";
 
 
 const Contact = () => {
     return (
         <section className="p-6 text-gray-100 dark:text-gray-800">
+            <Helmet>
+                <title> Contact </title>
+            </Helmet>
             <form noValidate="" className="container w-full max-w-xl p-8 mx-auto space-y-6 rounded-md shadow bg-gray-900 dark:bg-gray-50">
                 <h2 className="w-full text-3xl font-bold leading-tight">Contact us</h2>
                 <div>

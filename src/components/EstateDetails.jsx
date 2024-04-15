@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { Link, useParams } from "react-router-dom";
 import { useLoaderData } from "react-router-dom";
 
@@ -24,6 +25,9 @@ const EstateDetails = () => {
 
     return (
         <div className="card-body items-center text-center">
+            <Helmet>
+                <title> EstateDetails </title>
+            </Helmet>
             <h1 className="card-title">Hello This is Id {id}</h1>
 
             <img src={image} className="object-cover object-center rounded-3xl w-full mb-4 h-[300px]" />

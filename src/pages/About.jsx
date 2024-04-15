@@ -1,8 +1,12 @@
+import { Helmet } from "react-helmet-async";
 
 
 const About = () => {
     return (
         <section className="py-6 ">
+            <Helmet>
+                <title> About </title>
+            </Helmet>
             <div className="container flex flex-col items-center justify-center p-4 mx-auto sm:p-10">
                 <p className="p-2 text-sm font-medium tracking-wider text-center uppercase">Harmony Heights Development team</p>
                 <h1 className="text-4xl font-bold leading-none text-center sm:text-5xl">The talented people behind the scenes</h1>
