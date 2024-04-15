@@ -8,6 +8,7 @@ import Contact from "../pages/Contact";
 import About from "../pages/About";
 import UpdateProfile from "../pages/UpdateProfile";
 import Review from "../pages/Review";
+import PrivateRoutes from "./PrivateRoutes";
 
 
 const routes = createBrowserRouter([
@@ -27,11 +28,15 @@ const routes = createBrowserRouter([
             },
             {
                 path: "/update-profile",
-                element: <UpdateProfile></UpdateProfile>
+                element: <PrivateRoutes>
+                    <UpdateProfile></UpdateProfile>
+                </PrivateRoutes>
             },
             {
                path: "/review",
-               element: <Review></Review>
+               element: <PrivateRoutes>
+                <Review></Review>
+               </PrivateRoutes>
             },
             {
                 path: "/register",
@@ -39,11 +44,15 @@ const routes = createBrowserRouter([
             },
             {
                 path: "/contact",
-                element: <Contact></Contact>
+                element: <PrivateRoutes>
+                    <Contact></Contact>
+                </PrivateRoutes>
             },
             {
                 path: "/about",
-                element: <About></About>
+                element: <PrivateRoutes>
+                     <About></About>
+                </PrivateRoutes>
             }
         ]
     }
