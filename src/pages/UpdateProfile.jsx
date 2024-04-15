@@ -9,7 +9,7 @@ const UpdateProfile = () => {
             <Link to="/update-profile" className="text-center">
                 <h1 className="text-5xl font-bold mb-4">Want to Update Profile ?</h1>
             </Link>
-            <div className="card w-[30%] shadow-2xl bg-white">
+            <div className="card w-[100%] shadow-2xl bg-white">
                 <form className="card-body w-full">
                     <div className="form-control">
                         <label className="label">

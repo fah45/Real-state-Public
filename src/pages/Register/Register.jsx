@@ -88,13 +88,13 @@ const Register = () => {
             })
     }
     return (
-        <div className="hero ">
-            <div className="hero-content flex-col w-full">
+        <div className="hero p-6 ">
+            <div className="hero-content flex-col w-full p-8">
 
                 <div className="text-center">
                     <h1 className="text-5xl font-bold mb-4">Register now!</h1>
                 </div>
-                <div className="card w-[30%] shadow-2xl bg-white">
+                <div className="card w-[100%]  shadow-2xl bg-white">
                     <form className="card-body w-full" onSubmit={handleRegister}>
                         <div className="form-control">
                             <label className="label">
