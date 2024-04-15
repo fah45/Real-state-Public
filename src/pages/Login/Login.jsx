@@ -1,7 +1,7 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { useContext, useState } from "react";
-import { FaFacebook, FaGithub, FaGoogle, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaGoogle, } from "react-icons/fa";
 import toast, { Toaster } from 'react-hot-toast';
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 
@@ -10,7 +10,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa6";
 
 
 const Login = () => {
-    const { signIn, googleSignIn, gitHubSignIn, twitterSignIn, facebookSignIn } = useContext(AuthContext)
+    const { signIn, googleSignIn, gitHubSignIn, } = useContext(AuthContext)
     const [success, setSuccess] = useState("")
     const [errorMessage, setErrorMessage] = useState("")
     const [showPassword, setShowPassword] = useState(false);
@@ -26,14 +26,19 @@ const Login = () => {
         setSuccess("")
         setErrorMessage("")
 
-        if(password.length <6){
+        if (password.length < 6) {
             setErrorMessage("Password should be at least 6 characters or longer");
             toast.error("Password should be at least 6 characters or longer")
             return;
         }
-        else if(!/[A-Z]/.test(password)){
+        else if (!/[A-Z]/.test(password)) {
             setErrorMessage("Your password should be at least one upper case characters");
             toast.error("should be one upper case");
+            return;
+        }
+        else if (!/[a-z]/.test(password)) {
+            setErrorMessage("Your password should be at least one lower case characters");
+            toast.error("should be one lower case");
             return;
         }
 
@@ -41,13 +46,12 @@ const Login = () => {
             .then(() => {
                 setSuccess("Logged In Successful")
                 // Toast
-                
-                toast.success('Successfully created!');
+                toast.success('Successfully login!');
                 navigate(location?.state ? location.state : '/')
             })
             .catch(error => {
                 // Toast
-                toast.error('login again');
+                toast.error('Wrong email/Password');
                 setErrorMessage(error.message)
             })
     }
@@ -61,10 +65,10 @@ const Login = () => {
                 toast.success("Successfully login");
                 navigate(location?.state ? location.state : '/')
             } // navigate after login
-               // Toast
-                
+                // Toast
+
             )
-            .catch(error=>{
+            .catch(error => {
                 // toast(error.message)
                 toast.error('Wrong Password or email');
                 setErrorMessage(error.message)
@@ -89,8 +93,8 @@ const Login = () => {
                             <label className="label">
                                 <span className="label-text text-gray-700 text-xs">Password</span>
                             </label>
-                            <input  type={ showPassword ? "text" : "password"} placeholder="Password" name="password" className="input input-bordered text-gray-700 bg-transparent border-gray-300 " required />
-                            <span className="absolute top-3 right-2 py-10 px-6 " onClick={()=> setShowPassword(!showPassword)}>
+                            <input type={showPassword ? "text" : "password"} placeholder="Password" name="password" className="input input-bordered text-gray-700 bg-transparent border-gray-300 " required />
+                            <span className="absolute top-3 right-2 py-10 px-6 " onClick={() => setShowPassword(!showPassword)}>
                                 {
                                     showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>
                                 }
@@ -103,7 +107,7 @@ const Login = () => {
                             }
                         </div>
                         <div className="form-control mt-4">
-                        <Toaster />
+                            <Toaster />
                             <button className="btn btn-primary">Login</button>
                         </div>
                         <div className="mt-4 text-center">
@@ -112,11 +116,9 @@ const Login = () => {
                     </form>
                     <div className="divider text-gray-700">Continue With</div>
                     <div className="flex justify-center gap-4 mb-6">
-                    <Toaster />
+                        <Toaster />
                         <button className="btn rounded-full" onClick={() => handleSocialLogin(googleSignIn)}><FaGoogle /></button>
                         <button className="btn rounded-full" onClick={() => handleSocialLogin(gitHubSignIn)}><FaGithub /></button>
-                        <button className="btn rounded-full" onClick={() => handleSocialLogin(twitterSignIn)}><FaTwitter /></button>
-                        <button className="btn rounded-full" onClick={() => handleSocialLogin(facebookSignIn)}><FaFacebook /></button>
                     </div>
                 </div>
             </div>

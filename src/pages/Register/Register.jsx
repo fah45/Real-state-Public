@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
-import { FaFacebook, FaGithub, FaGoogle, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaGoogle,  } from "react-icons/fa";
 import toast, { Toaster } from 'react-hot-toast';
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 
@@ -14,7 +14,7 @@ const Register = () => {
     const [showPassword, setShowPassword] = useState(false);
 
 
-    const { signUp, googleSignIn, gitHubSignIn, twitterSignIn, facebookSignIn } = useContext(AuthContext)
+    const { signUp, googleSignIn, gitHubSignIn,  } = useContext(AuthContext)
 
     const navigate = useNavigate()
 
@@ -30,7 +30,7 @@ const Register = () => {
         setErrorMessage("")
 
         // if(password.length<6){return setError, toast}
-        // if(regx logic){return setError, toast}
+        // if(regex logic){return setError, toast}
         if(password.length <6){
             setErrorMessage("Password should be at least 6 characters or longer");
             toast.error("Password should be at least 6 characters or longer")
@@ -41,18 +41,24 @@ const Register = () => {
             toast.error("should be one upper case");
             return;
         }
+        else if(!/[a-z]/.test(password)){
+            setErrorMessage("Your password should be at least one lower case characters");
+            toast.error("should be one lower case");
+            return;
+        }
 
         // Normal SignUp
-        signUp(email, password)
+        signUp(email, password, photo)
             .then(() => {
                 // update profile er vitore then er vitore eta
                 setSuccess("Successfully Registered")
                 // Toast
+                toast.success("Successfully Registered");
                 navigate('/login')
             })
             .catch(error => {
                 // toast
-                toast.error('Wrong Password or email');
+                toast.error('Already created/check your password or email');
                 setErrorMessage(error.message)
             })
     }
@@ -98,7 +104,7 @@ const Register = () => {
                             <label className="label">
                                 <span className="label-text text-gray-700 text-xs">PhotoURL</span>
                             </label>
-                            <input type="text" placeholder="Photo-Url" name="Photo_Url" className="input input-bordered text-gray-700 bg-transparent border-gray-300 " required />
+                            <input type="text" placeholder="Type-here" name="Photo" className="input input-bordered text-gray-700 bg-transparent border-gray-300 " required />
                         </div>
                         <div className="form-control mb-4 relative">
                             <label className="label">
@@ -130,8 +136,6 @@ const Register = () => {
                     <Toaster />
                         <button className="btn rounded-full" onClick={() => handleSocialLogin(googleSignIn)}><FaGoogle /></button>
                         <button className="btn rounded-full" onClick={() => handleSocialLogin(gitHubSignIn)}><FaGithub /></button>
-                        <button className="btn rounded-full" onClick={() => handleSocialLogin(twitterSignIn)}><FaTwitter /></button>
-                        <button className="btn rounded-full" onClick={() => handleSocialLogin(facebookSignIn)}><FaFacebook /></button>
                     </div>
                 </div>
             </div>
