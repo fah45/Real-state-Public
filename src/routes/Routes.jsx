@@ -9,6 +9,7 @@ import About from "../pages/About";
 import UpdateProfile from "../pages/UpdateProfile";
 import Review from "../pages/Review";
 import PrivateRoutes from "./PrivateRoutes";
+import EstateDetails from "../components/EstateDetails";
 
 
 const routes = createBrowserRouter([
@@ -20,7 +21,7 @@ const routes = createBrowserRouter([
             {
                 path: "/",
                 element: <Home></Home>,
-                loader: () => fetch('/public/example.json')
+                loader: () => fetch('/example.json')
             },
             {
                 path: "/login",
@@ -53,6 +54,11 @@ const routes = createBrowserRouter([
                 element: <PrivateRoutes>
                      <About></About>
                 </PrivateRoutes>
+            },
+            {
+                path: "/estate/:id",
+                element: <PrivateRoutes><EstateDetails></EstateDetails></PrivateRoutes>,
+                loader: () => fetch('/example.json')
             }
         ]
     }
