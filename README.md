@@ -1,6 +1,6 @@
 
 
-**Live Site URL:** {`https://residential-site.web.app/`}
+**Live Site URL:
 
 ## Features and Characteristics:
 - **EstateCard:** Browse through visually appealing Estate cards showcasing essential details like title, price, status, area and image for an engaging browsing experience.
