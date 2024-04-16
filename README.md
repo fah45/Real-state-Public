@@ -1,6 +1,7 @@
+# Harmony
 
+## Live Site: [https://residential-site.web.app/](https://residential-site.web.app/)
 
-**Live Site URL:
 
 ## Features and Characteristics:
 - **EstateCard:** Browse through visually appealing Estate cards showcasing essential details like title, price, status, area and image for an engaging browsing experience.
@@ -9,5 +10,5 @@
 - **Register Page:** For Register any user added name, email, PhotoUrl and Password and also includes 2 social media register method like: Github and Gmail.
 - **Update-Profile:** For Update any user-profile added name, email, PhotoUrl  and also added update button for update and change the name of user.
 
-**npm Package Used for Challenges Task:** `https://swiperjs.com/`
+**npm Package Used for Challenges Task:** [Swiper Slider](https://swiperjs.com/)
 
