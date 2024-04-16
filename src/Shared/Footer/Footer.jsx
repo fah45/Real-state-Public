@@ -23,7 +23,7 @@ const Footer = () => {
                         <span className="label-text">Enter your email address</span>
                     </label>
                     <div className="join overflow-hidden">
-                        <input type="text" placeholder="username@site.com" className="input input-bordered w-[50%] join-item" />
+                        <input type="text" placeholder="user@email.com" className="input input-bordered w-[50%] join-item" />
                         <button className="btn btn-secondary join-item">Subscribe</button>
                     </div>
                 </fieldset>
