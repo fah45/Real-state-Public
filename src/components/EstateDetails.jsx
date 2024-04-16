@@ -26,10 +26,8 @@ const EstateDetails = () => {
     return (
         <div className="card-body items-center text-center">
             <Helmet>
-                <title> EstateDetails </title>
+                <title> {`${estate_title}`} </title>
             </Helmet>
-            <h1 className="card-title">Hello This is Id {id}</h1>
-
             <img src={image} className="object-cover object-center rounded-3xl w-full mb-4 h-[300px]" />
             <p><span className='font-bold'>Estate_title: </span>{estate_title}</p>
             <p><span className='font-bold'>Description: </span>{description}</p>

@@ -35,9 +35,8 @@ const routes = createBrowserRouter([
             },
             {
                path: "/review",
-               element: <PrivateRoutes>
-                <Review></Review>
-               </PrivateRoutes>
+               element:<Review></Review>
+
             },
             {
                 path: "/register",
@@ -45,15 +44,11 @@ const routes = createBrowserRouter([
             },
             {
                 path: "/contact",
-                element: <PrivateRoutes>
-                    <Contact></Contact>
-                </PrivateRoutes>
+                element:<Contact></Contact>
             },
             {
                 path: "/about",
-                element: <PrivateRoutes>
-                     <About></About>
-                </PrivateRoutes>
+                element: <PrivateRoutes><About></About></PrivateRoutes>
             },
             {
                 path: "/estate/:id",

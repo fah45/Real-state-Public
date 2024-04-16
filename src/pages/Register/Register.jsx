@@ -80,7 +80,7 @@ const Register = () => {
                 // Toast
                 toast.success("Successfully login");
                 setSuccess("Successfully Registered")
-                navigate('/login')
+                navigate('/')
             })
             .catch(error => {
                 // toast(error.message)

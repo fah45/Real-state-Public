@@ -24,7 +24,7 @@ const Navbar = () => {
         <li><NavLink to="/update-profile">Update Profile</NavLink></li>
         <li><NavLink to="/review">Review</NavLink></li>
         <li><NavLink to="/contact">Contact</NavLink></li>
-        <li><NavLink to="/about">About Us</NavLink></li>
+        <li><NavLink to="/about">Our Team</NavLink></li>
     </>
 
 
@@ -32,7 +32,7 @@ const Navbar = () => {
     return (
 
         <div className="navbar bg-base-100">
-            
+
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -50,26 +50,28 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end mx-auto gap-6">
-            {user ?
-                <div className="flex items-center gap-4">
-                    <button className="btn btn-sm bg-[#F9A51A]" onClick={handleSignOut}>Sign out</button>
-                    <div className="">
-                        <img className="rounded-full h-10 w-10" src={user.photoURL} alt="" />
+                {user ?
+                    <div className="flex items-center gap-4">
+                        <div className="">
+                            <div className="tooltip tooltip-left" data-tip={user.displayName}>
+                                <img className="rounded-full h-10 w-10" src={user.photoURL} alt="" />
+                            </div>
+                        </div>
+                        <button className="btn btn-sm bg-[#F9A51A]" onClick={handleSignOut}>Sign out</button>
+                    </div> :
+                    <div className="flex items-center gap-4">
+                        <Link to={"/login"}>
+                            <button className="btn btn-sm bg-[#F9A51A]">Login</button>
+                        </Link>
+                        <Link to={"/register"}>
+                            <button className="btn btn-sm bg-[#F9A51A]">Register</button>
+                        </Link>
+                        <div className="">
+                            <img className="rounded-full h-10 w-10" src="/blank-user.jpg" alt="" />
+                        </div>
                     </div>
-                </div> :
-                <div className="flex items-center gap-4">
-                    <Link to={"/login"}>
-                        <button className="btn btn-sm bg-[#F9A51A]">Login</button>
-                    </Link>
-                    <Link to={"/register"}>
-                        <button className="btn btn-sm bg-[#F9A51A]">Register</button>
-                    </Link>
-                    <div className="">
-                        <img className="rounded-full h-10 w-10" src="/blank-user.jpg" alt="" />
-                    </div>
-                </div>
 
-            }
+                }
             </div>
         </div>
     );
